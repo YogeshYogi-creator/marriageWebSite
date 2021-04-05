@@ -10,7 +10,7 @@ const App = (props) => {
       <Paper>
         <Grid container>
         <Grid style = {{textAlign: "center"}}>
-            <img width= "80%" height= "80%" alt = "title_img" src="https://static1.squarespace.com/static/5a5683a5dc2b4a49e4390ac4/t/5e99cc31e967a27db493a3f2/1617272666008/?format=1500w"/>
+            <Button component = {Link} to = "./"><img width= "80%" height= "100%" alt = "title_img" src="https://static1.squarespace.com/static/5a5683a5dc2b4a49e4390ac4/t/5e99cc31e967a27db493a3f2/1617272666008/?format=1500w"/></Button>
         </Grid>
         </Grid>
         <Grid container>
@@ -25,10 +25,10 @@ const App = (props) => {
           </Grid>
         </Grid>
         <hr/>
-        <Button style = {{color: "#8d6235"}} component = {Link} to = "/welcome" >Welcome</Button>
+        <Button style = {{color: "#8d6235"}} component = {Link} to = "/">Welcome</Button>
         <Button style = {{color: "#8d6235"}} component = {Link} to = "/contact">Contact</Button>
         <hr/>
-        <Route path = "/welcome" component = {Welcome}/>
+        <Route path = "/" component = {Welcome} exact = {true}/>
         <Route path = "/contact" component = {Contact}/>
       </Paper>
       </Grid>

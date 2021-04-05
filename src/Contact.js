@@ -1,6 +1,8 @@
 import React, {useState} from 'react' 
 import {Container, Grid, Typography, TextField, Paper, Button} from "@material-ui/core"
-import DateFnsUtils from '@date-io/date-fns';
+import DateFnsUtils from '@date-io/date-fns'
+import ReCAPTCHA from "react-google-recaptcha"
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import {
   MuiPickersUtilsProvider,
 //   KeyboardTimePicker,
@@ -137,6 +139,10 @@ const Contact = (props) => {
         }
         
     }
+
+    const onReCaptchaChange = (value) => {
+        console.log("Captcha value:", value);
+    }
     // const classes = useStyles();
     return (
         <Container>
@@ -211,7 +217,7 @@ const Contact = (props) => {
                         <Grid style = {{position: "relative", padding: 20 }}>
                             <Typography>Choose Your Preferred Venues</Typography>
                                     
-                                    <select onChange = {handlePrefferedValueChange}>
+                                    <select className = "form-control" onChange = {handlePrefferedValueChange}>
                                         <option value={preferredVenues} >Please Select</option>
                                         {select1.map((ele, i) => {
                                             return <option key={i} value={ele}>{ele}</option>
@@ -221,12 +227,12 @@ const Contact = (props) => {
                                     {formErrors.preferredVenues && <span style = {{color: "red"}}>{formErrors.preferredVenues}</span>}
                         </Grid>
                         <Grid style = {{position: "relative", padding: 20 }}>
-                        <TextField label = "address" type = 'text' value = {userAddress} onChange = {handleAddressChange} placeholder = 'address' multiline fullWidth/>
+                        <TextField style = {{position: "relative", bottom: 40 }} label = "address" type = 'text' value = {userAddress} onChange = {handleAddressChange} placeholder = 'address' multiline fullWidth/>
                         {formErrors.userAddress && <span style = {{color: "red"}}>{formErrors.userAddress}</span>}    
                             
                             <Typography>How did you hear about us?*</Typography>
-                                    
-                                    <select onChange = {handleAboutUsChange}>
+                            
+                                    <select className = "form-control" onChange = {handleAboutUsChange}>
                                         <option value={aboutUs}>Please Select</option>
                                         {select2.map((ele, i) => {
                                             return <option key={i} value={ele}>{ele}</option>
@@ -262,6 +268,12 @@ const Contact = (props) => {
                                         to store and process the personal information submitted above to 
                                         provide you the content requested.
                             </Typography>
+                        </Grid>
+                        <Grid>
+                              <ReCAPTCHA
+                                    sitekey="6Lcgk50aAAAAAMTRIt7CEgpIMFHehPLVPMsbCOqa"
+                                    onChange={onReCaptchaChange}
+                                />
                         </Grid>
                         <Grid style = {{position: "relative", padding: 20, marginBottom: "50px" }}>
                             <Button type = "submit" variant="contained" color="secondary">Submit</Button>

@@ -2,6 +2,7 @@ import React from 'react'
 import {Container, Grid, Paper, Typography} from '@material-ui/core'
 import YouTube from 'react-youtube'
 import Footer from './Footer'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 const Welcome = (props) => {
 
