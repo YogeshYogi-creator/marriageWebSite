@@ -89,7 +89,7 @@ const Contact = (props) => {
             errors.phoneNumber = 'Phone Number cannot be blank'
         }
         if(phoneNumber.trim().lenght < 10){
-            errors.phoneNumber = 'Phone number should contain 10 charactors'
+            errors.phoneNumber = 'Phone number should contain 10 numbers'
         }
         if(userAddress.trim().length === 0){
             errors.userAddress = 'User Address cannot be blank'
