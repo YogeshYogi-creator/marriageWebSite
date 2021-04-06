@@ -1,7 +1,7 @@
 import React, {useState} from 'react' 
 import {Container, Grid, Typography, TextField, Paper, Button} from "@material-ui/core"
 import DateFnsUtils from '@date-io/date-fns'
-import ReCAPTCHA from "react-google-recaptcha"
+// import ReCAPTCHA from "react-google-recaptcha"
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import {
   MuiPickersUtilsProvider,
@@ -140,9 +140,9 @@ const Contact = (props) => {
         
     }
 
-    const onReCaptchaChange = (value) => {
-        console.log("Captcha value:", value);
-    }
+    // const onReCaptchaChange = (value) => {
+    //     console.log("Captcha value:", value);
+    // }
     // const classes = useStyles();
     return (
         <Container>
@@ -270,10 +270,10 @@ const Contact = (props) => {
                             </Typography>
                         </Grid>
                         <Grid>
-                              <ReCAPTCHA
+                              {/* <ReCAPTCHA
                                     sitekey="6Lcgk50aAAAAAMTRIt7CEgpIMFHehPLVPMsbCOqa"
                                     onChange={onReCaptchaChange}
-                                />
+                                /> */}
                         </Grid>
                         <Grid style = {{position: "relative", padding: 20, marginBottom: "50px" }}>
                             <Button type = "submit" variant="contained" color="secondary">Submit</Button>
